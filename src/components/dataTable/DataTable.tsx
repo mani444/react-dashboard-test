@@ -13,11 +13,16 @@ type Props = {
   columns: GridColDef[];
   rows: object[];
   slug: string;
+  onDelete?: (id: number) => void;
 };
 
 const DataTable = (props: Props) => {
   const handleDelete = (id: number) => {
-    console.log(id + " has been deleted!");
+    if (props.onDelete) {
+      props.onDelete(id);
+    } else {
+      console.log(id + " has been deleted!");
+    }
   };
 
   const actionColumn: GridColDef = {
