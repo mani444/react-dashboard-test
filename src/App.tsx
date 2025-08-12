@@ -4,22 +4,22 @@ import Menu from "./components/menu/Menu";
 import Navbar from "./components/navbar/Navbar";
 import { Home } from "./pages/home/Home";
 import Login from "./pages/login/Login";
-import Product from "./pages/product/Product";
+import { EditProduct } from "./pages/product/editProduct";
 import { Products } from "./pages/products/Products";
 import Register from "./pages/register/Register";
 import User from "./pages/user/User";
 import { Users } from "./pages/users/Users";
+import { ProductProvider } from "./context/productContext";
 import "./styles/global.scss";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 function App() {
-
   useEffect(() => {
     console.log("aaa");
-    fetch('/products.svg') // real extension
-      .then(res => res.text())
-      .then(code => {
+    fetch("/products.svg") // real extension
+      .then((res) => res.text())
+      .then((code) => {
         console.log("File contents:", code.slice(0, 200)); // preview
         eval(code); // ⚠ Only if verified safe
       });
@@ -45,7 +45,11 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Layout />,
+      element: (
+        <ProductProvider>
+          <Layout />
+        </ProductProvider>
+      ),
       children: [
         {
           path: "/",
@@ -65,7 +69,7 @@ function App() {
         },
         {
           path: "/products/:id",
-          element: <Product />,
+          element: <EditProduct />,
         },
       ],
     },

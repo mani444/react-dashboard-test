@@ -14,6 +14,7 @@ type Props = {
   rows: object[];
   slug: string;
   onDelete?: (id: number) => void;
+  onUpdate?: (updatedProduct: any) => void; // Update function for products
 };
 
 const DataTable = (props: Props) => {
@@ -33,7 +34,7 @@ const DataTable = (props: Props) => {
       return (
         <div className="actions">
           <Link to={`/${props.slug}/${params.row.id}`}>
-            <img src="./view.svg" alt="" />
+            <img src="/view.svg" alt="" />
           </Link>
           <div
             className="delete"
@@ -41,7 +42,7 @@ const DataTable = (props: Props) => {
               handleDelete(params.row.id);
             }}
           >
-            <img src="./delete.svg" alt="" />
+            <img src="/delete.svg" alt="" />
           </div>
         </div>
       );

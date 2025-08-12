@@ -1,0 +1,138 @@
+.edit-product {
+  padding: 20px;
+  min-height: 100vh;
+
+  .MuiPaper-root {
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+
+    .MuiTypography-h4 {
+      color: #333;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .MuiTextField-root {
+      .MuiOutlinedInput-root {
+        &:hover .MuiOutlinedInput-notchedOutline {
+          border-color: #1976d2;
+        }
+
+        &.Mui-focused .MuiOutlinedInput-notchedOutline {
+          border-color: #1976d2;
+        }
+      }
+
+      .MuiInputLabel-root {
+        &.Mui-focused {
+          color: #1976d2;
+        }
+      }
+    }
+
+    .MuiButton-contained {
+      background-color: #1976d2;
+      padding: 12px 24px;
+      font-weight: 600;
+      text-transform: none;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(25, 118, 210, 0.3);
+
+      &:hover {
+        background-color: #1565c0;
+        box-shadow: 0 4px 8px rgba(25, 118, 210, 0.4);
+      }
+    }
+
+    .MuiButton-outlined {
+      padding: 12px 24px;
+      font-weight: 600;
+      text-transform: none;
+      border-radius: 8px;
+      border-color: #1976d2;
+      color: #1976d2;
+
+      &:hover {
+        border-color: #1565c0;
+        background-color: rgba(25, 118, 210, 0.04);
+      }
+    }
+
+    .MuiFormControlLabel-root {
+      .MuiSwitch-root {
+        .MuiSwitch-switchBase.Mui-checked {
+          color: #1976d2;
+
+          &+.MuiSwitch-track {
+            background-color: #1976d2;
+          }
+        }
+      }
+    }
+  }
+
+  // Dark theme adjustments
+  .dark-theme & {
+    background-color: #121212;
+
+    .MuiPaper-root {
+      background-color: #1e1e1e;
+      color: #fff;
+
+      .MuiTypography-h4 {
+        color: #fff;
+      }
+
+      .MuiTextField-root {
+        .MuiOutlinedInput-root {
+          color: #fff;
+
+          .MuiOutlinedInput-notchedOutline {
+            border-color: #444;
+          }
+
+          &:hover .MuiOutlinedInput-notchedOutline {
+            border-color: #90caf9;
+          }
+
+          &.Mui-focused .MuiOutlinedInput-notchedOutline {
+            border-color: #90caf9;
+          }
+        }
+
+        .MuiInputLabel-root {
+          color: #ccc;
+
+          &.Mui-focused {
+            color: #90caf9;
+          }
+        }
+
+        .MuiFormHelperText-root {
+          color: #999;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 10px;
+
+    .MuiPaper-root {
+      margin: 10px 0;
+      padding: 20px !important;
+    }
+
+    .MuiGrid-container {
+      .MuiGrid-item {
+        padding: 8px !important;
+      }
+    }
+
+    .MuiButton-root {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+}

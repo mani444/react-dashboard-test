@@ -1,8 +1,7 @@
-import { useState } from "react";
 import { GridColDef } from "@mui/x-data-grid";
 import "./products.scss";
-import { products as initialProducts } from "../../data";
 import DataTable from "../../components/dataTable/DataTable";
+import { useProducts } from "../../context/productContext";
 
 export interface Product {
   id: number;
@@ -16,17 +15,7 @@ export interface Product {
 }
 
 export const Products = () => {
-  const [products, setProducts] = useState<Product[]>(initialProducts);
-
-  const handleDelete = (id: number) => {
-    // Show confirmation dialog
-    if (window.confirm("Are you sure you want to delete this product?")) {
-      setProducts((prevProducts) =>
-        prevProducts.filter((product) => product.id !== id),
-      );
-      console.log(`Product with ID ${id} has been deleted!`);
-    }
-  };
+  const { products, deleteProduct, updateProduct } = useProducts();
 
   const columns: GridColDef[] = [
     { field: "id", headerName: "ID", width: 90 },
@@ -86,7 +75,8 @@ export const Products = () => {
         slug="products"
         columns={columns}
         rows={products}
-        onDelete={handleDelete}
+        onDelete={deleteProduct}
+        onUpdate={updateProduct}
       />
     </div>
   );
