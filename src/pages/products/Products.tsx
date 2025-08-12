@@ -68,8 +68,8 @@ export const Products = () => {
   return (
     <div className="products">
       <div className="info">
-        <h1>Users</h1>
-        <button>Add New User</button>
+        <h1>Products</h1>
+        <button>Add New Product</button>
       </div>
       <DataTable
         slug="products"
